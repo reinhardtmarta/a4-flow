@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/config/app_config.dart';
 import '../../../app/providers/app_providers.dart';
+import '../../../features/common/utils/constants.dart';
 
 class CanvasWidget extends ConsumerStatefulWidget {
   final String documentId;
@@ -18,16 +19,29 @@ class CanvasWidget extends ConsumerStatefulWidget {
 class _CanvasWidgetState extends ConsumerState<CanvasWidget> {
   late ScrollController _scrollController;
   late TransformationController _transformationController;
+  int _pageCount = 10; // Start with 10 pages, add more on demand
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
     _transformationController = TransformationController();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    // Load more pages when scrolling near the end
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 500) {
+      setState(() {
+        _pageCount += 5;
+      });
+    }
   }
 
   @override
   void dispose() {
+    _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
     _transformationController.dispose();
     super.dispose();
@@ -36,7 +50,6 @@ class _CanvasWidgetState extends ConsumerState<CanvasWidget> {
   @override
   Widget build(BuildContext context) {
     final zoom = ref.watch(canvasZoomProvider);
-    final panOffset = ref.watch(canvasPanProvider);
 
     // Calculate A4 dimensions in pixels
     final a4WidthPx = AppConfig.a4Width * AppConfig.mmToPixels;
@@ -64,7 +77,7 @@ class _CanvasWidgetState extends ConsumerState<CanvasWidget> {
             child: Column(
               children: [
                 // Infinite vertical stack of A4 pages
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < _pageCount; i++)
                   _buildA4Page(
                     context,
                     pageNumber: i + 1,
@@ -105,16 +118,36 @@ class _CanvasWidgetState extends ConsumerState<CanvasWidget> {
       ),
       child: Stack(
         children: [
-          // Page content area (placeholder)
+          // Page content area with margins
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Page $pageNumber',
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context).colorScheme.outline,
+                // Header area
+                Container(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Theme.of(context).colorScheme.outline,
+                        width: 0.5,
+                      ),
+                    ),
+                  ),
+                  child: Text(
+                    'Page $pageNumber',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.outline,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                // Content area (placeholder for editor content)
+                Expanded(
+                  child: Container(
+                    color: Colors.transparent,
+                    // Content will be rendered here by the editor mode
                   ),
                 ),
               ],
@@ -124,7 +157,7 @@ class _CanvasWidgetState extends ConsumerState<CanvasWidget> {
           // Page number footer
           Positioned(
             bottom: 10,
-            right: 10,
+            right: 15,
             child: Text(
               '$pageNumber',
               style: Theme.of(context).textTheme.labelSmall?.copyWith(
