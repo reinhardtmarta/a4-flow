@@ -1,0 +1,96 @@
+name: a4_flow
+description: Advanced local editor for scientific articles, theses and academic documents with infinite A4 canvas.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI & Navigation
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  go_router: ^13.0.0
+
+  # State Management
+  riverpod: ^2.4.0
+  flutter_riverpod: ^2.4.0
+  riverpod_generator: ^2.3.0
+
+  # Localization (8 languages)
+  intl: ^0.19.0
+  flutter_localizations:
+    sdk: flutter
+
+  # Math & Scientific
+  flutter_math_fork: ^0.7.0
+  math_expressions: ^2.4.0
+  scientific_calculator: ^1.0.0
+
+  # File & Storage
+  file_picker: ^6.0.0
+  path_provider: ^2.1.0
+  shared_preferences: ^2.2.0
+
+  # PDF & Document Export
+  pdf: ^3.10.0
+  printing: ^5.11.0
+  image: ^4.1.0
+
+  # Image Processing
+  image_picker: ^1.0.0
+  flutter_image_compress: ^2.1.0
+
+  # Drawing & Canvas
+  perfect_freehand: ^2.0.0
+  flutter_svg: ^2.0.0
+
+  # Ads (AdMob)
+  google_mobile_ads: ^4.0.0
+
+  # Markdown
+  markdown: ^7.1.0
+  flutter_markdown: ^0.6.0
+
+  # Utilities
+  uuid: ^4.0.0
+  freezed_annotation: ^2.4.0
+  json_annotation: ^4.8.0
+  equatable: ^2.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.0
+  freezed: ^2.4.0
+  json_serializable: ^6.7.0
+  riverpod_generator: ^2.3.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/fonts/
+    - assets/icons/
+    - assets/data/
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Roboto-Italic.ttf
+          style: italic
+    - family: RobotoMono
+      fonts:
+        - asset: assets/fonts/RobotoMono-Regular.ttf
+        - asset: assets/fonts/RobotoMono-Bold.ttf
+          weight: 700
