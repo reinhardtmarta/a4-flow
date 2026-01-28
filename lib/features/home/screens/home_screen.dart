@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../app/localization/app_localizations.dart';
 import '../../../app/config/app_config.dart';
+import '../../../app/providers/document_providers.dart';
+import '../../../domain/entities/document.dart';
 import '../widgets/recent_documents_widget.dart';
 import '../widgets/new_document_card.dart';
 
@@ -76,7 +78,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
-                // Optionally, close the app if user doesn't accept
               },
               child: Text(loc.cancel),
             ),
@@ -152,7 +153,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   context.pushNamed('editor', pathParameters: {'documentId': docId});
                 },
                 onOpenDocument: () {
-                  // TODO: Implement file picker
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text(loc.loading)),
                   );

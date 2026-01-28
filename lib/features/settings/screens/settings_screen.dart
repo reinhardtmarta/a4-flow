@@ -42,7 +42,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             _buildThemeToggle(context, loc),
             _buildUnitSelector(context, loc),
 
-            const Divider(),
+            const Divider(height: 32),
 
             // About
             _buildSectionHeader(context, loc.about),
