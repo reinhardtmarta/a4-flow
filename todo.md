@@ -9,24 +9,35 @@
 - [x] Criar roteador (Go Router)
 - [x] Implementar providers (Riverpod)
 
-## Fase 2: Telas Principais
+## Fase 2: Estrutura de Dados
+- [x] Criar modelos de domínio (Document, CanvasElement, HistoryAction)
+- [x] Criar modelos de dados (DocumentModel, CanvasElementModel)
+- [x] Implementar LocalStorageService
+- [x] Implementar DocumentRepository
+- [x] Implementar HistoryService
+- [x] Implementar ExportService
+- [x] Criar providers de repositórios
+- [x] Criar utilitários (constants, formatters)
+
+## Fase 3: Telas Principais
 - [x] Tela Home com novo/abrir documentos
 - [x] Tela de Configurações (idioma, tema, unidade)
 - [x] Diálogo de Termos de Responsabilidade
 - [x] Diálogo de Aviso de Publicidade
-- [x] Tela do Editor com canvas A4
+- [x] Implementar providers de documentos
+- [x] Widget de documentos recentes
+- [x] Navegação entre telas
+
+## Fase 4: Canvas e Navegação de Modos
+- [x] Canvas A4 infinito com scroll vertical
+- [x] Zoom interativo (pinch-to-zoom)
+- [x] Pan com dois dedos
+- [x] Renderização otimizada de páginas
 - [x] Barra de modo (6 modos)
-- [ ] Implementar navegação entre telas
+- [x] Panel de configurações específicas do modo
+- [x] Widgets placeholder para todos os 6 modos
 
-## Fase 3: Canvas e Zoom
-- [ ] Canvas A4 infinito com scroll vertical
-- [ ] Zoom interativo (pinch-to-zoom)
-- [ ] Pan com dois dedos
-- [ ] Renderização otimizada de páginas
-- [ ] Indicador de zoom/posição
-- [ ] Botões de zoom (in, out, fit)
-
-## Fase 4: Modo Artigo
+## Fase 5: Modo Artigo
 - [ ] Editor de texto rico (Rich Text)
 - [ ] Formatação: negrito, itálico, sublinhado, tachado
 - [ ] Sobrescrito e subscrito
@@ -38,7 +49,7 @@
 - [ ] Seletor de colunas (1, 2, 3)
 - [ ] Configurações: margens, espaçamento, fonte
 
-## Fase 5: Modo Planilha
+## Fase 6: Modo Planilha
 - [ ] Grade infinita embutida
 - [ ] Inserir/deletar linhas e colunas
 - [ ] Formatação de célula (cores, negrito, alinhamento)
@@ -47,7 +58,7 @@
 - [ ] Congelar cabeçalho
 - [ ] Temas de cores para grade
 
-## Fase 6: Modo Desenho
+## Fase 7: Modo Desenho
 - [ ] Ferramentas: lápis, caneta, borracha
 - [ ] Formas: linha, retângulo, círculo, triângulo, polígono
 - [ ] Inserção de texto
@@ -56,7 +67,7 @@
 - [ ] Snap to grid
 - [ ] Configurações: espessura, cores, opacidade
 
-## Fase 7: Modo Calculadora Científica
+## Fase 8: Modo Calculadora Científica
 - [ ] Display de resultado
 - [ ] Histórico de cálculos
 - [ ] Teclado científico completo
@@ -70,7 +81,7 @@
 - [ ] Modo angular (graus/radianos)
 - [ ] Inserir resultado (texto, imagem, LaTeX)
 
-## Fase 8: Modo Símbolos Matemáticos
+## Fase 9: Modo Símbolos Matemáticos
 - [ ] Paleta de símbolos em categorias
 - [ ] Categorias: Grego, Operadores, Setas, Conjuntos, Lógica, Relações
 - [ ] Barra de busca
@@ -78,7 +89,7 @@
 - [ ] Sistema de favoritos
 - [ ] Configurações: tamanho, cor
 
-## Fase 9: Modo LaTeX
+## Fase 10: Modo LaTeX
 - [ ] Editor de código LaTeX
 - [ ] Syntax highlighting
 - [ ] Autocompletar básico
@@ -87,7 +98,7 @@
 - [ ] Botão renderizar
 - [ ] Inserir no canvas
 
-## Fase 10: Funcionalidades Comuns
+## Fase 11: Funcionalidades Comuns
 - [ ] Desfazer/Refazer (≥50 ações)
 - [ ] Copiar/Colar/Duplicar objetos
 - [ ] Agrupar/Desagrupar
@@ -102,7 +113,7 @@
 - [ ] Inserir gráficos
 - [ ] Inserir formas
 
-## Fase 11: Sistema de Exportação
+## Fase 12: Sistema de Exportação
 - [ ] Exportar como PDF
 - [ ] Exportar como PNG/JPG
 - [ ] Exportar como Markdown/TXT
@@ -110,48 +121,48 @@
 - [ ] Importar projeto (.a4flow)
 - [ ] Configurações de exportação (resolução, qualidade)
 
-## Fase 12: Conversor LaTeX Global
+## Fase 13: Conversor LaTeX Global
 - [ ] Ícone conversor no topo
 - [ ] Converter equações (texto/desenho/calculadora) para LaTeX
 - [ ] Converter gráficos simples para TikZ
 - [ ] Inserir no canvas
 - [ ] Inserir no modo LaTeX
 
-## Fase 13: Persistência e Storage
-- [ ] Salvar documento localmente
-- [ ] Carregar documento
-- [ ] Listar documentos recentes
-- [ ] Deletar documento
+## Fase 14: Persistência e Storage
+- [x] Salvar documento localmente
+- [x] Carregar documento
+- [x] Listar documentos recentes
+- [ ] Deletar documento (implementar no UI)
 - [ ] Renomear documento
 - [ ] Compressão de arquivos
 
-## Fase 14: Internacionalização
-- [ ] Português (Brasil) - completo
-- [ ] Inglês (EUA) - completo
-- [ ] Espanhol - completo
-- [ ] Francês - completo
-- [ ] Alemão - completo
-- [ ] Italiano - completo
-- [ ] Chinês (Simplificado) - completo
-- [ ] Russo - completo
+## Fase 15: Internacionalização
+- [x] Português (Brasil) - completo
+- [x] Inglês (EUA) - completo
+- [x] Espanhol - estrutura base
+- [x] Francês - estrutura base
+- [x] Alemão - estrutura base
+- [x] Italiano - estrutura base
+- [x] Chinês (Simplificado) - estrutura base
+- [x] Russo - estrutura base
 - [ ] Formatação de números por locale
 - [ ] Formatação de datas por locale
 
-## Fase 15: Integração AdMob
+## Fase 16: Integração AdMob
 - [ ] Configurar Google Mobile Ads
 - [ ] Banner inferior (modelo com placeholders)
 - [ ] Intersticial pós-export (modelo com placeholders)
 - [ ] Rewarded ad opcional (modelo com placeholders)
 - [ ] Sem chaves reais (apenas comentários)
 
-## Fase 16: Permissões e Segurança
+## Fase 17: Permissões e Segurança
 - [ ] Solicitar permissão de storage
 - [ ] Solicitar permissão de câmera
 - [ ] Dialogs amigáveis explicando permissões
 - [ ] Validação de entrada de dados
 - [ ] Tratamento de erros
 
-## Fase 17: Testes e Otimização
+## Fase 18: Testes e Otimização
 - [ ] Testes unitários
 - [ ] Testes de widget
 - [ ] Testes de integração
@@ -159,8 +170,9 @@
 - [ ] Testes em dispositivos reais
 - [ ] Verificação de acessibilidade
 
-## Fase 18: Documentação e Entrega
-- [ ] README.md completo
+## Fase 19: Documentação e Entrega
+- [x] README.md completo
+- [x] design.md com especificação de interface
 - [ ] Documentação de API
 - [ ] Guia de uso
 - [ ] Changelog
