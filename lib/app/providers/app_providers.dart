@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../config/app_config.dart';
+import '../../data/services/undo_redo_service.dart';
 
 // Theme mode provider
 final themeModeProvider = StateProvider<ThemeMode>((ref) {
@@ -27,6 +28,11 @@ enum EditorMode {
 
 final currentEditorModeProvider = StateProvider<EditorMode>((ref) {
   return EditorMode.article;
+});
+
+// Undo/Redo service provider
+final undoRedoServiceProvider = Provider<UndoRedoService>((ref) {
+  return UndoRedoService();
 });
 
 // Undo/Redo history provider
